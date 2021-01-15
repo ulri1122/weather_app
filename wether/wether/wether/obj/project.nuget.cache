@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "7VUhBEcBUZIw6GZoW1xfPleiGK6kHDKntaGM77Kscx8E/zpSslQjpCykrWX297Wl3vg+Fvy3e9rKN3gcdFQBlw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\The one and only\\source\\repos\\wether\\wether\\wether\\wether.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\The one and only\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\The one and only\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\The one and only\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\The one and only\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\The one and only\\.nuget\\packages\\xamarin.essentials\\1.6.0\\xamarin.essentials.1.6.0.nupkg.sha512",
+    "C:\\Users\\The one and only\\.nuget\\packages\\xamarin.forms\\5.0.0.1874\\xamarin.forms.5.0.0.1874.nupkg.sha512"
+  ],
+  "logs": []
+}

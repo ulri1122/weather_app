@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="wether.MainPage">
+    <ScrollView>
+        <StackLayout BackgroundColor="#CAD2C5">
+            <Label FontSize="30" Margin="0,30,0,0" HorizontalOptions="Center" x:Name="gps_location" Text="Copenhagen, Denmark">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="changeLocationPage"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label HorizontalOptions="Center" Text="Netop nu"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="375"></RowDefinition>
+                    <RowDefinition Height="150"></RowDefinition>
+                    <RowDefinition Height="170"></RowDefinition>
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="20"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Column="1" Margin="0,20,0,0" Grid.Row="0" CornerRadius="20"  BackgroundColor="White">
+                    <StackLayout>
+
+
+                        <StackLayout HorizontalOptions="Center"  Orientation="Horizontal" >
+                            <Label FontSize="80"  VerticalOptions="Center" x:Name="currentTemp"  Text="20°C">
+                            </Label>
+                            <Image HeightRequest="100" WidthRequest="100" x:Name="weather_img"  HorizontalOptions="End" Source="img_0d1.png"/>
+                        </StackLayout>
+                        <StackLayout Margin="40,0,40,0">
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="3" Color="gray"/>
+                            <Label FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" x:Name="Day_disc" Text="lorem"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="20" Text="Feals like"/>
+                            <Label FontSize="20" Text="placeholder" x:Name="fealsLike" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="20" Text="Wind"/>
+                            <Label FontSize="20" Text="placeholder" x:Name="currentWind" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="20" Text="Humidity"/>
+                            <Label FontSize="20" Text="placeholder" x:Name="currentHumidity" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="20" Text="UV "/>
+                            <Label FontSize="20" Text="placeholder" x:Name="currentUV" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="20" Text="Sun Up/Down "/>
+                            <Label FontSize="20" Text="placeholder" x:Name="sunUpDown" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="0,20,0,0" Grid.Row="1" Grid.Column="1" CornerRadius="20"  BackgroundColor="White">
+                    <StackLayout>
+                        <Label Text="Next 24 hours" />
+                        <CollectionView x:Name="collectionView_hourly" VerticalOptions="StartAndExpand">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Frame>
+                                            <StackLayout>
+                                                <Label Text="{Binding DateTime, StringFormat='{0:H:MM}'}"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="Center"
+                                                       TextColor="Black"/>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Image Source="{Binding Weather[0].Icon,StringFormat='\img_{0\}.img' }" HeightRequest="20" WidthRequest="20"></Image>
+                                                    <Label Text="{Binding Temp, StringFormat='{0:F0} °C'}"
+                                                           HorizontalOptions="Center"
+                                                           VerticalOptions="Center"
+                                                           TextColor="Black"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+
+                </Frame>
+
+                <Frame Margin="0,20,0,20" Grid.Row="2" Grid.Column="1" CornerRadius="20"  BackgroundColor="White">
+                    <StackLayout>
+                        <Label Text="Next 7 days"/>
+                        <CollectionView x:Name="collectionView" VerticalOptions="StartAndExpand">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Frame>
+                                            <StackLayout>
+                                                <Label Text="{Binding DateTime, StringFormat='{0:ddd, dd MMM}'}"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="Center"
+                                                       TextColor="Black"/>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Image Source="{Binding Weather[0].Icon,StringFormat='\img_{0\}.img' }" HeightRequest="20" WidthRequest="20"></Image>
+                                                    <Label Text="{Binding Temp.Day, StringFormat='{0:F0} °C'}"
+                                                           HorizontalOptions="Center"
+                                                           VerticalOptions="Center"
+                                                           TextColor="Black"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
